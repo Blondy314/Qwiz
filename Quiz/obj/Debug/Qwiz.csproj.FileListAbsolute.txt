@@ -1,0 +1,16 @@
+c:\projects\Qwiz\Quiz\bin\Debug\Qwiz.exe.config
+c:\projects\Qwiz\Quiz\bin\Debug\Qwiz.exe
+c:\projects\Qwiz\Quiz\bin\Debug\Qwiz.pdb
+c:\projects\Qwiz\Quiz\bin\Debug\EPPlus.dll
+c:\projects\Qwiz\Quiz\bin\Debug\System.ComponentModel.Annotations.dll
+c:\projects\Qwiz\Quiz\bin\Debug\EPPlus.xml
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.csprojAssemblyReference.cache
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.GroupControl.resources
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.MainForm.resources
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.QwizForm.resources
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.Properties.Resources.resources
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.csproj.GenerateResource.cache
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.csproj.CoreCompileInputs.cache
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.csproj.CopyComplete
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.exe
+c:\projects\Qwiz\Quiz\obj\Debug\Qwiz.pdb

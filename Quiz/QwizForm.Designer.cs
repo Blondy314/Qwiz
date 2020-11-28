@@ -39,7 +39,14 @@
             this.tsHome = new System.Windows.Forms.ToolStripButton();
             this.tsNext = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.spltQuest = new System.Windows.Forms.SplitContainer();
+            this.picBox = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spltQuest)).BeginInit();
+            this.spltQuest.Panel1.SuspendLayout();
+            this.spltQuest.Panel2.SuspendLayout();
+            this.spltQuest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnA
@@ -51,7 +58,7 @@
             this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnA.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnA.ForeColor = System.Drawing.Color.Black;
-            this.btnA.Location = new System.Drawing.Point(115, 435);
+            this.btnA.Location = new System.Drawing.Point(115, 478);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(469, 39);
             this.btnA.TabIndex = 1;
@@ -69,7 +76,7 @@
             this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB.ForeColor = System.Drawing.Color.Black;
-            this.btnB.Location = new System.Drawing.Point(115, 495);
+            this.btnB.Location = new System.Drawing.Point(115, 538);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(469, 39);
             this.btnB.TabIndex = 2;
@@ -87,7 +94,7 @@
             this.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnD.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnD.ForeColor = System.Drawing.Color.Black;
-            this.btnD.Location = new System.Drawing.Point(115, 615);
+            this.btnD.Location = new System.Drawing.Point(115, 658);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(469, 39);
             this.btnD.TabIndex = 4;
@@ -105,7 +112,7 @@
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnC.ForeColor = System.Drawing.Color.Black;
-            this.btnC.Location = new System.Drawing.Point(115, 555);
+            this.btnC.Location = new System.Drawing.Point(115, 598);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(469, 39);
             this.btnC.TabIndex = 3;
@@ -115,16 +122,14 @@
             // 
             // txtQuest
             // 
-            this.txtQuest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQuest.BackColor = System.Drawing.Color.White;
+            this.txtQuest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtQuest.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuest.ForeColor = System.Drawing.Color.Black;
-            this.txtQuest.Location = new System.Drawing.Point(13, 40);
+            this.txtQuest.Location = new System.Drawing.Point(0, 0);
             this.txtQuest.Multiline = true;
             this.txtQuest.Name = "txtQuest";
-            this.txtQuest.Size = new System.Drawing.Size(703, 376);
+            this.txtQuest.Size = new System.Drawing.Size(716, 225);
             this.txtQuest.TabIndex = 5;
             this.txtQuest.Text = "זו השאלה";
             this.txtQuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -137,7 +142,7 @@
             this.lstGroups.HideSelection = false;
             this.lstGroups.Location = new System.Drawing.Point(734, 40);
             this.lstGroups.Name = "lstGroups";
-            this.lstGroups.Size = new System.Drawing.Size(350, 614);
+            this.lstGroups.Size = new System.Drawing.Size(350, 657);
             this.lstGroups.TabIndex = 7;
             this.lstGroups.UseCompatibleStateImageBehavior = false;
             this.lstGroups.View = System.Windows.Forms.View.Details;
@@ -180,14 +185,44 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(108, 24);
             this.toolStripLabel1.Text = "© Inbar Rotem";
             // 
+            // spltQuest
+            // 
+            this.spltQuest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spltQuest.Location = new System.Drawing.Point(12, 40);
+            this.spltQuest.Name = "spltQuest";
+            this.spltQuest.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // spltQuest.Panel1
+            // 
+            this.spltQuest.Panel1.Controls.Add(this.txtQuest);
+            // 
+            // spltQuest.Panel2
+            // 
+            this.spltQuest.Panel2.Controls.Add(this.picBox);
+            this.spltQuest.Size = new System.Drawing.Size(716, 423);
+            this.spltQuest.SplitterDistance = 225;
+            this.spltQuest.TabIndex = 9;
+            // 
+            // picBox
+            // 
+            this.picBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBox.Location = new System.Drawing.Point(0, 0);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(716, 194);
+            this.picBox.TabIndex = 0;
+            this.picBox.TabStop = false;
+            // 
             // QwizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 678);
+            this.ClientSize = new System.Drawing.Size(1097, 721);
+            this.Controls.Add(this.spltQuest);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lstGroups);
-            this.Controls.Add(this.txtQuest);
             this.Controls.Add(this.btnD);
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btnB);
@@ -202,6 +237,12 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QuestForm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.spltQuest.Panel1.ResumeLayout(false);
+            this.spltQuest.Panel1.PerformLayout();
+            this.spltQuest.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spltQuest)).EndInit();
+            this.spltQuest.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +260,8 @@
         private System.Windows.Forms.ToolStripButton tsHome;
         private System.Windows.Forms.ToolStripButton tsNext;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.SplitContainer spltQuest;
+        private System.Windows.Forms.PictureBox picBox;
     }
 }
 

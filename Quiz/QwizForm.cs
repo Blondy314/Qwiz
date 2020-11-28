@@ -1,11 +1,8 @@
-﻿using OfficeOpenXml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Qwiz
@@ -13,7 +10,6 @@ namespace Qwiz
     public partial class QwizForm : Form
     {
         int _index;
-        int _height;
         bool _wasCliecked;
         Button[] _buttons;
         private readonly Action _onHome;
@@ -40,16 +36,7 @@ namespace Qwiz
                 CenterToScreen();
 
                 txtQuest.Enabled = false;
-
-                _height = 60;
-
-                _picBox = new PictureBox
-                {
-                    Location = new Point(txtQuest.Location.X, txtQuest.Location.Y + _height),
-                    Size = new Size(txtQuest.Size.Width, txtQuest.Size.Height - _height),
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
-                };
+                spltQuest.Enabled = false;
 
                 var scoreItem = new ListViewItem();
                 lstGroups.Columns.Add(new ColumnHeader
@@ -102,8 +89,6 @@ namespace Qwiz
             }
         }
 
-        PictureBox _picBox;
-
         private void LoadQuestion()
         {
             Text = $"Qwiz - Question {_index + 1}";
@@ -123,21 +108,17 @@ namespace Qwiz
 
             if (quest.PicLink == null)
             {
-                txtQuest.Size = new Size(txtQuest.Size.Width, _picBox.Size.Height + _height);
-                if (_picBox.Image != null)
+                spltQuest.SplitterDistance = spltQuest.Height;
+                if (picBox.BackgroundImage != null)
                 {
-                    _picBox.Image.Dispose();
-                    _picBox.Image = null;
+                    picBox.BackgroundImage.Dispose();
+                    picBox.BackgroundImage = null;
                 }
-
-                Controls.Remove(_picBox);
             }
             else
             {
-                _picBox.Image = Image.FromFile(quest.PicLink);
-                Controls.Add(_picBox);
-
-                txtQuest.Size = new Size(txtQuest.Size.Width, _height);
+                picBox.BackgroundImage = Image.FromFile(quest.PicLink);
+                spltQuest.SplitterDistance = spltQuest.Height / 2;
             }
 
             for (var i = 0; i < quest.Answers.Length; ++i)
