@@ -2,9 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Qwiz/bin/Debug
-/Qwiz/bin/Release
-/Qwiz/obj/Debug
+/Quiz/bin/Debug
+/Quiz/bin/Release
+/Quiz/obj/Debug
 /.vs/Qwiz/v16/.suo
 bin
 obj
