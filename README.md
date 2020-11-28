@@ -6,4 +6,6 @@ An easy to make multiple answer Quiz
 3. Add the groups team members in the Groups sheet (you can add more than two groups)
 4. Run the exe. Press Questions to open excel file. Press Start to start the game.
 
+![Screenshot](Screenshot.png)
+
 Enjoy.
