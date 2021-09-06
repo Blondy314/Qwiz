@@ -878,6 +878,14 @@
         7Y5uHs//DxXMsrJRHMW0AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="txtQuest.Rtf" xml:space="preserve">
+    <value>{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset177 Arial;}{\f1\fnil\fcharset0 Arial;}}
+{\colortbl ;\red255\green255\blue255;}
+{\*\generator Riched20 10.0.22000}\viewkind4\uc1 
+\pard\rtlpar\qr\cf1\f0\rtlch\fs160\lang1037\'e6\'e5 \'e4\'f9\'e0\'ec\'e4\f1\ltrch\lang1033\par
+}
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

@@ -17,6 +17,9 @@ namespace Qwiz
         private readonly List<string>[] _groups;
         private readonly Language _language;
 
+        private static int ScoreSize = 20;
+        private static int QuestSize = 80;
+
         public QwizForm(QuestionInfo[] questions, List<string>[] groups, Language language, Action onHome)
         {
             InitializeComponent();
@@ -25,6 +28,8 @@ namespace Qwiz
             _groups = groups;
             _language = language;
             _questions = questions;
+
+            WindowState = FormWindowState.Maximized;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,15 +40,11 @@ namespace Qwiz
 
                 CenterToScreen();
 
-                txtQuest.Enabled = false;
-                spltQuest.Enabled = false;
-
                 var scoreItem = new ListViewItem();
                 lstGroups.Columns.Add(new ColumnHeader
                 {
                     Width = 0
                 });
-
 
                 for (var i = 0; i < _groups.Length; ++i)
                 {
@@ -61,10 +62,12 @@ namespace Qwiz
                 }
 
                 scoreItem.UseItemStyleForSubItems = false;
-                scoreItem.SubItems[2].Font = scoreItem.SubItems[1].Font = new Font(scoreItem.Font, FontStyle.Bold);
+                scoreItem.SubItems[2].Font = scoreItem.SubItems[1].Font = new Font(scoreItem.Font.FontFamily, ScoreSize, FontStyle.Bold);
 
                 lstGroups.Items.Add(scoreItem);
                 lstGroups.Items.Add(new ListViewItem());
+
+                splitContainer2.SplitterDistance = splitContainer2.Width - splitContainer2.Width / 4;
 
                 for (var i = 0; i < _groups[0].Count; ++i)
                 {
@@ -106,20 +109,14 @@ namespace Qwiz
 
             txtQuest.Text = quest.Question;
 
-            if (quest.PicLink == null)
+            if (quest.PicLink != null)
             {
-                spltQuest.SplitterDistance = spltQuest.Height;
-                if (picBox.BackgroundImage != null)
-                {
-                    picBox.BackgroundImage.Dispose();
-                    picBox.BackgroundImage = null;
-                }
+                txtQuest.BackgroundImage = Image.FromFile(quest.PicLink);
             }
-            else
-            {
-                picBox.BackgroundImage = Image.FromFile(quest.PicLink);
-                spltQuest.SplitterDistance = spltQuest.Height / 2;
-            }
+
+            var space = splitContainer2.Panel2.Height / 4 - 30;
+
+            var width = splitContainer2.Panel2.Width - 50;
 
             for (var i = 0; i < quest.Answers.Length; ++i)
             {
@@ -128,7 +125,21 @@ namespace Qwiz
                 _buttons[i].BackColor = Color.CornflowerBlue;
                 _buttons[i].Text = quest.Answers[i].Val;
                 _buttons[i].Tag = quest.Answers[i];
+
+                _buttons[i].Location = new Point(splitContainer2.Panel1.Width / 2 - (width / 2), _buttons[0].Location.Y + space * i);
+                _buttons[i].Size = new Size(width, _buttons[i].Size.Height);
             }
+
+            txtQuest.rtb.SelectAll();
+            txtQuest.rtb.Font = new Font(txtQuest.rtb.Font.FontFamily, QuestSize);
+            txtQuest.rtb.SelectionAlignment = HorizontalAlignment.Center;
+            txtQuest.rtb.DeselectAll();
+            
+            txtQuest.rtb.BackColor = Color.Black;
+            txtQuest.rtb.ForeColor = Color.White;
+            txtQuest.rtb.ReadOnly = true;
+
+            lstGroups.Select();
         }
 
         private void HighlightGroup()
@@ -186,6 +197,7 @@ namespace Qwiz
         {
             var item = lstGroups.Items[0].SubItems[_index % _groups.Length + 1];
             item.Text = "" + (Convert.ToInt32(item.Text) + 1);
+            item.Font = new Font(item.Font.FontFamily, ScoreSize);
         }
 
         private void tsNext_Click(object sender, EventArgs e)

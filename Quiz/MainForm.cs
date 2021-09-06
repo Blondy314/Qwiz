@@ -33,7 +33,7 @@ namespace Qwiz
                 cmbLang.Items.Add(Language.English);
                 cmbLang.Items.Add("עברית");
 
-                cmbLang.SelectedIndex = 0;
+                cmbLang.SelectedIndex = 1;
 
                 CenterToScreen();
 
@@ -127,7 +127,7 @@ namespace Qwiz
                     }
 
                     var groups = ReadGroups(xlPackage);
-                    return (questions.ToArray(), groups);
+                    return (Shuffle(questions.ToArray()), groups);
                 }
             }
             finally
